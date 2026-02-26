@@ -20,7 +20,7 @@
         <li><a href="#camara">Cámara</a></li>
         <li><a href="#contacto">Comprar</a></li>
       </ul>
-      <div class="menu-toggle">☰</div>
+      <div class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">☰</div>
     </nav>
   </header>
 
@@ -28,37 +28,55 @@
   <section class="hero">
     <h1>iNova X</h1>
     <h2>Potencia redefinida.</h2>
-    <button class="cta-btn">Comprar ahora</button>
+    <button class="cta-btn" aria-label="Comprar iNova X ahora">Comprar ahora</button>
   </section>
 
   <!-- DISEÑO -->
-  <section id="diseno" class="section light">
+  <section id="diseno" class="section light" aria-labelledby="diseno-title">
     <article>
-      <h2>Diseño elegante.</h2>
+      <h2 id="diseno-title">Diseño elegante.</h2>
       <p>Aluminio aeroespacial y vidrio ultrarresistente.</p>
       <img src="images/phone.png" alt="iNova X vista frontal">
     </article>
   </section>
 
   <!-- RENDIMIENTO -->
-  <section id="rendimiento" class="section dark">
+  <section id="rendimiento" class="section dark" aria-labelledby="rendimiento-title">
     <article>
-      <h2>Chip A19 Neural.</h2>
+      <h2 id="rendimiento-title">Chip A19 Neural.</h2>
       <p>Velocidad y eficiencia sin precedentes.</p>
     </article>
   </section>
 
   <!-- CÁMARA -->
-  <section id="camara" class="section light">
+  <section id="camara" class="section light" aria-labelledby="camara-title">
     <article>
-      <h2>Cámara Pro 48MP.</h2>
+      <h2 id="camara-title">Cámara Pro 48MP.</h2>
       <p>Fotografía nocturna avanzada con IA.</p>
     </article>
   </section>
 
+  <!-- ESTADÍSTICAS (CONTADOR ANIMADO) -->
+  <section class="section dark" aria-label="Estadísticas de rendimiento">
+    <div class="stats-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+      <div class="stat-item">
+        <h3 class="counter" data-target="48" aria-label="48 megapíxeles">0</h3>
+        <p>Megapíxeles</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="counter" data-target="20" aria-label="20 horas de batería">0</h3>
+        <p>Horas de batería</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="counter" data-target="120" aria-label="120 hertzios ProMotion">0</h3>
+        <p>Hz ProMotion</p>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIOS -->
-  <section class="section dark">
-    <h2>Lo que dicen nuestros usuarios</h2>
+  <section class="section dark" aria-labelledby="testimonios-title">
+    <h2 id="testimonios-title">Lo que dicen nuestros usuarios</h2>
     <article>
       <p>"El mejor smartphone que he tenido."</p>
       <span>- Tech Reviewer</span>
@@ -66,12 +84,14 @@
   </section>
 
   <!-- FORMULARIO -->
-  <section id="contacto" class="section light">
-    <h2>Reserva el tuyo</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="Nombre" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <button type="submit">Enviar</button>
+  <section id="contacto" class="section light" aria-labelledby="contacto-title">
+    <h2 id="contacto-title">Reserva el tuyo</h2>
+    <form id="contactForm" aria-describedby="formMessages">
+      <input type="text" id="name" placeholder="Nombre" required aria-required="true">
+      <input type="email" id="email" placeholder="Correo electrónico" required aria-required="true">
+      <input type="tel" id="phone" placeholder="Teléfono" required aria-required="true">
+      <div id="formMessages" aria-live="polite"></div>
+      <button type="submit" class="cta-btn" aria-label="Enviar formulario de reserva">Enviar</button>
     </form>
   </section>
 
@@ -80,6 +100,16 @@
     <p>© 2026 iNova X</p>
   </footer>
 
-  <script src="js/app.js"></script>
+  <!-- MODAL -->
+  <div id="modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <span class="modal-close" aria-label="Cerrar modal">&times;</span>
+      <h2 id="modal-title">¡OFERTA LIMITADA!</h2>
+      <p>Reserva hoy y obtén un 10% de descuento en tu primer accesorio.</p>
+      <button class="cta-btn" id="modalCTA" aria-label="Aceptar oferta">Lo quiero</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
